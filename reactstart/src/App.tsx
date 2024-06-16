@@ -1,15 +1,36 @@
 //태그사용하려면 import 필수
-import LargeButton from "./LargeButton";
-import LunchButton from "./LunchButton";
+import Button from "./Button";
 
 function App() {
   return (
     <div className="App">
-      <LunchButton />
-      <LunchButton />
+      <Button content="Home" bgColor="main" border_radius={0} color="white" />
+      <Button content="Home" bgColor="main" border_radius={10} color="white" />
+      <Button content="Home" bgColor="main" border_radius={50} color="white" />
 
-      <LargeButton />
-      <LargeButton />
+      <Button content="Home" bgColor="side" border_radius={0} color="white" />
+
+      <Button content="Home" bgColor="side" border_radius={10} color="white" />
+
+      <Button content="Home" bgColor="side" border_radius={50} color="white" />
+      <Button
+        content="Home"
+        bgColor="deactive"
+        border_radius={0}
+        color="black"
+      />
+      <Button
+        content="Home"
+        bgColor="deactive"
+        border_radius={10}
+        color="black"
+      />
+      <Button
+        content="Home"
+        bgColor="deactive"
+        border_radius={50}
+        color="black"
+      />
     </div>
   );
 }
