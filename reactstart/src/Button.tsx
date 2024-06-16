@@ -18,7 +18,7 @@ const Button = ({ content, bgColor, border_radius, color }: ButtonProbs) => {
     fontSize: "32px",
     padding: "10px 45px",
     border: `1px solid ${bgColor}`,
-    //backgroundColor: bgColor 랑 뭔차이임???
+    //backgroundColor: bgColor 랑 뭔차이임??? keyof 사용하면 밑에 줄 처럼 해주기
     backgroundColor: obj[bgColor],
     borderRadius: border_radius + "px",
     //key 와 value가 같으면 한줄로 가능
