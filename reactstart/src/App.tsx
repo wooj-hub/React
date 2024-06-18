@@ -1,17 +1,12 @@
-//태그사용하려면 import 필수
-import Button from "./Button";
-import StatusIcon from "./statusIcon";
+import { FaFacebook, FaGoogle, FaApple } from "react-icons/fa";
+import SNSLogin from "./SNSLogin";
 
-//Icon들
-import { IoIosInformationCircle } from "react-icons/io";
-import { IoIosWarning } from "react-icons/io";
-import { IoIosCheckmarkCircle } from "react-icons/io";
-
-//react icons
 function App() {
   return (
     <div className="App">
-      <StatusIcon color="info" Icon={IoIosInformationCircle} />
+      <SNSLogin backgroundColor="#1877F2" snsText={{ sns: "Facebook" }} snsIcon={{ Icon: FaFacebook }} />
+      <SNSLogin backgroundColor="black" snsText={{ sns: "Apple" }} snsIcon={{ Icon: FaApple }} />
+      <SNSLogin backgroundColor="white" snsText={{ sns: "Google" }} snsIcon={{ Icon: FaGoogle }} />
     </div>
   );
 }
