@@ -1,36 +1,17 @@
 //태그사용하려면 import 필수
 import Button from "./Button";
+import StatusIcon from "./statusIcon";
 
+//Icon들
+import { IoIosInformationCircle } from "react-icons/io";
+import { IoIosWarning } from "react-icons/io";
+import { IoIosCheckmarkCircle } from "react-icons/io";
+
+//react icons
 function App() {
   return (
     <div className="App">
-      <Button content="Home" bgColor="main" border_radius={0} color="white" />
-      <Button content="Home" bgColor="main" border_radius={10} color="white" />
-      <Button content="Home" bgColor="main" border_radius={50} color="white" />
-
-      <Button content="Home" bgColor="side" border_radius={0} color="white" />
-
-      <Button content="Home" bgColor="side" border_radius={10} color="white" />
-
-      <Button content="Home" bgColor="side" border_radius={50} color="white" />
-      <Button
-        content="Home"
-        bgColor="deactive"
-        border_radius={0}
-        color="black"
-      />
-      <Button
-        content="Home"
-        bgColor="deactive"
-        border_radius={10}
-        color="black"
-      />
-      <Button
-        content="Home"
-        bgColor="deactive"
-        border_radius={50}
-        color="black"
-      />
+      <StatusIcon color="info" Icon={IoIosInformationCircle} />
     </div>
   );
 }
