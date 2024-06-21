@@ -1,3 +1,5 @@
+//Icon 종류
+
 import { FaFacebook, FaGoogle, FaApple } from "react-icons/fa";
 
 type IconTypeLimited = typeof FaFacebook | typeof FaGoogle | typeof FaApple;

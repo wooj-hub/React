@@ -1,3 +1,5 @@
+//sns 텍스트
+
 export type SNSTextProps = {
   sns: "Facebook" | "Google" | "Apple";
 };

@@ -4,9 +4,21 @@ import SNSLogin from "./SNSLogin";
 function App() {
   return (
     <div className="App">
-      <SNSLogin backgroundColor="#1877F2" snsText={{ sns: "Facebook" }} snsIcon={{ Icon: FaFacebook }} />
-      <SNSLogin backgroundColor="black" snsText={{ sns: "Apple" }} snsIcon={{ Icon: FaApple }} />
-      <SNSLogin backgroundColor="white" snsText={{ sns: "Google" }} snsIcon={{ Icon: FaGoogle }} />
+      <SNSLogin
+        backgroundColor="#1877F2"
+        snsText={{ sns: "Facebook" }}
+        snsIcon={{ Icon: FaFacebook }}
+      />
+      <SNSLogin
+        backgroundColor="black"
+        snsText={{ sns: "Apple" }}
+        snsIcon={{ Icon: FaApple }}
+      />
+      <SNSLogin
+        backgroundColor="white"
+        snsText={{ sns: "Google" }}
+        snsIcon={{ Icon: FaGoogle }}
+      />
     </div>
   );
 }
