@@ -22,6 +22,7 @@ const Snackbar = ({ statusIcon, messageText }: SnackbarProps) => {
   return (
     <div style={style}>
       <div style={{ display: "flex" }}>
+        {/* <StatusIcon color = {statusIcon.color} Icon = {statusIcon.Icon} 와 같은의미/> */}
         <StatusIcon {...statusIcon} />
         <MessageText {...messageText} />
       </div>
