@@ -12,7 +12,6 @@ const mara: { ingredient: string[]; price: string | number } = {
 };
 
 //Intersection연산자[교집합] : &
-//?
 const pizza: { size: string } & { toppings: string[] } & { eat: () => void } = {
   size: "L",
   toppings: ["버섯", "치즈"],
@@ -21,3 +20,12 @@ const pizza: { size: string } & { toppings: string[] } & { eat: () => void } = {
     console.log("피자꿀맛");
   },
 };
+// 같은의미
+// const pizza: { size: string ;toppings: string[]; eat: () => void } = {
+//   size: "L",
+//   toppings: ["버섯", "치즈"],
+//   //eat는 매개변수없고 리턴값이 없는(void) 함수
+//   eat: () => {
+//     console.log("피자꿀맛");
+//   },
+// };

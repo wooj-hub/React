@@ -29,13 +29,9 @@ const student: {
   isschool: true,
 };
 
-//함수생성
+//함수생성 (매개변수, 매개변수): 결과값타입 =>
 const add = (a: number, b: number): number => a + b;
-add(1,3) // 4
+add(1, 3); // 4
 
 //number+string = string
-const add1 = (a:number, b:string):string =>a+b; //결과값 number로 선언하면 오류
-
-
-
-
+const add1 = (a: number, b: string): string => a + b; //결과값 number로 선언하면 오류

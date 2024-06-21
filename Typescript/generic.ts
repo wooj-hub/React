@@ -1,4 +1,4 @@
-//generic.ts :  generalize[일반화하다]
+// generic.ts :  generalize[일반화하다]
 
 // type a = {
 //   first: string;
@@ -58,13 +58,12 @@ type HambergerSet<A, B, C> = {
   drink: C;
 };
 
-type Morning = "머핀";
-type NotMorning = "참깨빵";
-
 type hambuger<T> = {
   bread: T;
   content: "불고기" | "쉬림프" | "치킨" | "토마토에그";
 };
+type Morning = "머핀";
+type NotMorning = "참깨빵";
 
 type Side = "감자튀김" | "코우슬로" | "맥너겟" | "소프트아이스크림";
 

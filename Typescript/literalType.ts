@@ -11,6 +11,7 @@ type PrimaryColor = "#05141F" | "#FFFFFF";
 type SecondaryColor = "#5D7D2B" | "#4C5B35" | "#589000";
 type FontSize = 11 | 12 | 13 | 14 | 16 | 20 | 24;
 
+//구조체 배열
 const component: { color: PrimaryColor; fontSize: FontSize }[] = [
   { color: "#05141F", fontSize: 16 },
   { color: "#FFFFFF", fontSize: 13 },
@@ -22,3 +23,10 @@ component.forEach(({ color, fontSize }) => {
   btn.style.color = color;
   btn.style.fontSize = fontSize + "px";
 });
+
+//같은의미
+// component.forEach((v) => {
+//   const btn = document.createElement("button");
+//   btn.style.color = v.color;
+//   btn.style.fontSize = v.fontSize + "px";
+// });
