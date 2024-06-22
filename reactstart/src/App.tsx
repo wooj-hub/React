@@ -1,27 +1,29 @@
 import { CSSProperties } from "react";
-import Rectangle from "./Rectangle";
+import Rectangle from "./Palette/Rectangle";
 
 function App() {
   const style: CSSProperties = {
     width: "50px",
+    display: "flex",
     flexDirection: "column",
     border: "0.2px solid purple",
-    gap: "5px",
+    gap: "2px",
   };
+
+  const arr = [
+    { color: "black", text: "50", backgroundColor: "#E1F5FE" },
+    { color: "black", text: "100", backgroundColor: "#B3E5FC" },
+    { color: "white", text: "150", backgroundColor: "#81D4FA" },
+    { color: "white", text: "200", backgroundColor: "#4FC3F7" },
+    { color: "white", text: "250", backgroundColor: "#29B6F6" },
+  ];
   return (
     <div className="App">
       <div style={style}>
         <Rectangle color="black" text="light blue" backgroundColor="white" />
-        <Rectangle color="black" text="50" backgroundColor="#E1F5FE" />
-        <Rectangle color="black" text="100" backgroundColor="#B3E5FC" />
-        <Rectangle color="black" text="200" backgroundColor="#81D4FA" />
-        <Rectangle color="white" text="300" backgroundColor="#4FC3F7" />
-        <Rectangle color="white" text="400" backgroundColor="#29B6F6" />
-        <Rectangle color="white" text="500" backgroundColor="#03A9F4" />
-        <Rectangle color="white" text="600" backgroundColor="#039BE5" />
-        <Rectangle color="white" text="700" backgroundColor="#0288D1" />
-        <Rectangle color="white" text="800" backgroundColor="#0277BD" />
-        <Rectangle color="white" text="900" backgroundColor="#01579B" />
+        {arr.map((v) => (
+          <Rectangle {...v} />
+        ))}
       </div>
     </div>
   );
