@@ -7,6 +7,7 @@ function App() {
     display: "flex",
     flexDirection: "column",
     border: "0.2px solid purple",
+    //display를 줘야 갭 적용됨
     gap: "2px",
   };
 
