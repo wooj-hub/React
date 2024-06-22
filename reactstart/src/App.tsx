@@ -1,31 +1,21 @@
-import { CSSProperties } from "react";
-import Rectangle from "./Palette/Rectangle";
+import Item from "./Musinsa/Item";
 
 function App() {
-  const style: CSSProperties = {
-    width: "50px",
-    display: "flex",
-    flexDirection: "column",
-    border: "0.2px solid purple",
-    //display를 줘야 갭 적용됨
-    gap: "2px",
-  };
-
-  const arr = [
-    { color: "black", text: "50", backgroundColor: "#E1F5FE" },
-    { color: "black", text: "100", backgroundColor: "#B3E5FC" },
-    { color: "white", text: "150", backgroundColor: "#81D4FA" },
-    { color: "white", text: "200", backgroundColor: "#4FC3F7" },
-    { color: "white", text: "250", backgroundColor: "#29B6F6" },
-  ];
   return (
     <div className="App">
-      <div style={style}>
-        <Rectangle color="black" text="light blue" backgroundColor="white" />
-        {arr.map((v) => (
-          <Rectangle {...v} />
-        ))}
+      <div className="w-6 h-6 rounded-full border border-gray-200 overflow-hidden">
+        <img className="w-full h-full object-cover" src="food.png" alt="" />
       </div>
+      <Item
+        itemImage={{ imageSrc: "shoe.jpg" }}
+        itemInfo={{ itemName: "무신사 스탠다드" }}
+        itemPrice={{ price: "120000" }}
+      />
+      <Item
+        itemImage={{ imageSrc: "shoe1.jpg" }}
+        itemInfo={{ itemName: "탠디" }}
+        itemPrice={{ price: "112000", discount: "33" }}
+      />
     </div>
   );
 }
