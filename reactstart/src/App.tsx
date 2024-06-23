@@ -1,11 +1,11 @@
 //tailwind
 
-import Comment from "./Comment/Comment";
+import Mybutton from "./Mybutton";
 
 function App() {
   return (
     <div className="App">
-      <Comment />
+      <Mybutton />
     </div>
   );
 }
