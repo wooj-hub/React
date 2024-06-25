@@ -11,7 +11,8 @@ type ItemProps = {
 const Item = ({ itemImage, itemInfo, itemPrice }: ItemProps) => {
   return (
     <div>
-      <ItemImage {...itemImage} />
+      {/* <ItemImage {...itemImage} /> 와 같은의미*/}
+      <ItemImage imageSrc={itemImage.imageSrc} />
       <ItemInfo {...itemInfo} />
       <ItemPrice {...itemPrice} />
     </div>
