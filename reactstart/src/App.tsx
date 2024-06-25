@@ -1,34 +1,21 @@
-//tailwind
-
-import { ChangeEvent, useState } from "react";
-import JoinForm from "./Signup/JoinForm";
-import FormButton from "./Signup/FormButton";
+import ObjAll from "./Musinsatest/ObjAll";
 
 function App() {
-  const [signUp, setSignUp] = useState({ id: "", pw: "", pwch: "" });
-
-  const isAllLength =
-    !!signUp.id.length && !!signUp.pw.length && !!signUp.pwch.length;
-  const isAllPassed = signUp.id.includes("@") && signUp.pw === signUp.pwch;
-
-  const handleId = (e: ChangeEvent<HTMLInputElement>) => {
-    setSignUp((v) => ({ ...v, id: e.target.value }));
-  };
-
-  const handlePw = (e: ChangeEvent<HTMLInputElement>) => {
-    setSignUp((v) => ({ ...v, pw: e.target.value }));
-  };
-
-  const handlePwch = (e: ChangeEvent<HTMLInputElement>) => {
-    setSignUp((v) => ({ ...v, pwch: e.target.value }));
-  };
-
   return (
     <div className="App">
-      <JoinForm onChange={handleId} guide="아이디" />
-      <JoinForm onChange={handlePw} guide="비밀번호" />
-      <JoinForm onChange={handlePwch} guide="비밀번호 확인" />
-      <FormButton isPass={isAllLength && isAllPassed} />
+      <ObjAll
+        //객체로 전달할 땐 = 이 아닌 :
+        image={{ imagesrc: "shoe.jpg" }}
+        name={{ name: "무신사 스탠다드" }}
+        price={{ price: "90000" }}
+      />
+
+      <ObjAll
+        //객체로 전달할 땐 = 이 아닌 :
+        image={{ imagesrc: "shoe1.jpg" }}
+        name={{ name: "아디다스" }}
+        price={{ price: "120000", discount: "33" }}
+      />
     </div>
   );
 }
