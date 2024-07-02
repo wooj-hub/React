@@ -5,6 +5,8 @@ function App() {
     <div className="App">
       <Counter price={15000} />
       <Counter price={30000} />
+      <Counter price={50000} />
+      <Counter price={60000} />
     </div>
   );
 }
