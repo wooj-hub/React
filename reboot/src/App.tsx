@@ -1,13 +1,20 @@
-import CategoryButton from "./thinggo/CategoryButton";
-import Tabs from "./thinggo/Tabs";
+import { useState } from "react";
 
 function App() {
+  const [num, setNum] = useState<number>(0);
+
+  //snapshot:
+  //set~ 함수는 비동기
+  //비동기: loop가 끝나고 함수가 실행된다
+
+  const click = () => {
+    setNum((v) => v + 1);
+    console.log(num);
+  };
+
   return (
-    <div className="App">
-      <Tabs />
-      {/* <CategoryButton imagesrc="watcha.png" name="WATCHA" />
-      <CategoryButton imagesrc="netflix.png" name="NETFLIX" />
-      <CategoryButton imagesrc="disney.png" name="DISENY" /> */}
+    <div onClick={click} className="App">
+      {num}
     </div>
   );
 }
