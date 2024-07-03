@@ -1,12 +1,13 @@
-import Counter from "./musinsa/Counter";
+import CategoryButton from "./thinggo/CategoryButton";
+import Tabs from "./thinggo/Tabs";
 
 function App() {
   return (
     <div className="App">
-      <Counter price={15000} />
-      <Counter price={30000} />
-      <Counter price={50000} />
-      <Counter price={60000} />
+      <Tabs />
+      {/* <CategoryButton imagesrc="watcha.png" name="WATCHA" />
+      <CategoryButton imagesrc="netflix.png" name="NETFLIX" />
+      <CategoryButton imagesrc="disney.png" name="DISENY" /> */}
     </div>
   );
 }
