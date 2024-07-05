@@ -4,6 +4,7 @@ import Musinsa from "./musinsa/Musinsa";
 import Home from "./Home";
 import Product from "./Product";
 import Layout from "./yeoshin/Layout";
+import Counter from "./musinsa/Counter";
 
 function App() {
   return (
@@ -13,7 +14,17 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" Component={Home} />
           <Route path="/thinggo" Component={Tabs} />
-          <Route path="/musinsa" Component={Musinsa} />
+          {/* probs를 전달할 때는 밑에처럼 함 */}
+          <Route
+            path="/musinsa"
+            element={
+              <>
+                <Counter price={15000} />
+                <Counter price={30000} />
+                <Counter price={40000} />
+              </>
+            }
+          />
           <Route path="/product/:id" Component={Product} />
         </Route>
       </Routes>
