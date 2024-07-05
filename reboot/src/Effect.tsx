@@ -8,18 +8,19 @@ const Effect = () => {
   //2. 다른 api 사용하기
   //3. dom 직접 조작하기
 
-  //   const [num, setNum] = useState(0);
+  const [num, setNum] = useState(0);
 
-  //useEffect(()=>{},[])
-  //useEffect함수는 함수와 배열[의존성 배열]을 전달받음
-  //의존성 배열: 앞에 함수가 재실행 하도록 하는 요소들
-  //   useEffect(() => {
-  //     //side effect와 관련된것
-  //     //https://fakerapi.it/en
-  //     const data = fetch("https://fakerapi.it/api/v1/addresses?_quantity=1")
-  //       .then((v) => v.json())
-  //       .then((v) => console.log(v));
-  //   }, [num]);
+  // useEffect(() => {}, []);
+  // useEffect함수는 함수와 배열[의존성 배열]을 전달받음
+  // 의존성 배열: 앞에 함수가 재실행 하도록 하는 요소들
+  //num을 클릭하면 +1씩 되고 data를 콘솔 로그함
+  useEffect(() => {
+    //side effect와 관련된것
+    //https://fakerapi.it/en
+    const data = fetch("https://fakerapi.it/api/v1/addresses?_quantity=1")
+      .then((v) => v.json())
+      .then((v) => console.log(v));
+  }, [num]);
 
   //quiz 클릭하면 로딩중이었다가 도시이름 가져오기
 
@@ -43,30 +44,30 @@ const Effect = () => {
 
   //quiz 위에 코드를 await를 사용해서 코드 간단화 => trigger없앰
 
-  const [city, setCity] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
+  // const [city, setCity] = useState<string>("");
+  // const [loading, setLoading] = useState<boolean>(true);
 
-  const fetchData = async () => {
-    setLoading(() => true);
-    const response = await fetch(
-      "https://fakerapi.it/api/v1/addresses?_quantity=1"
-    );
-    const result = await response.json();
-    setCity(result.data[0].city);
-    setLoading(() => false);
-  };
+  // const fetchData = async () => {
+  //   setLoading(() => true);
+  //   const response = await fetch(
+  //     "https://fakerapi.it/api/v1/addresses?_quantity=1"
+  //   );
+  //   const result = await response.json();
+  //   setCity(result.data[0].city);
+  //   setLoading(() => false);
+  // };
 
-  const reload = () => {
-    fetchData();
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // const reload = () => {
+  //   fetchData();
+  // };
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
-    //   <div onClick={() => setNum((prev) => prev + 1)}>effect {num}</div>
+    <div onClick={() => setNum((prev) => prev + 1)}>effect {num}</div>
     //quiz
-    <div onClick={reload}>effect {loading ? "로딩중" : city}</div>
+    // <div onClick={reload}>effect {loading ? "로딩중" : city}</div>
   );
 };
 

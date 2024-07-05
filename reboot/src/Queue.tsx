@@ -9,6 +9,7 @@ const Queue = () => {
     // setNum(num + 1);
     // //이 결과값은 +1씩 더해져서 나옴
 
+    //따라서 밑에 방식처럼 사용해야함
     //microtask queue
     setNum((n) => n + 1);
     setNum((n) => n + 1);
