@@ -3,10 +3,11 @@ import Label from "../atom/Label";
 import RoundCheckBox from "../atom/RoundCheckBox";
 import TrashIcon from "../atom/TrashIcon";
 
-export type TodoItemProbs = {
+export type TodoItemProps = {
   contents: string;
+  onDelete?: () => void;
 };
-const TodoItem = ({ contents }: TodoItemProbs) => {
+const TodoItem = ({ contents, onDelete }: TodoItemProps) => {
   const [isChecked, SetIsChecked] = useState<boolean>(false);
   //checkbox 를 check표시할수있도록 해주는 함수
   const handleCheck = () => {
@@ -22,6 +23,9 @@ const TodoItem = ({ contents }: TodoItemProbs) => {
       isChecked: isChecked,
       contents: contents,
     },
+    trashIcon: {
+      onDelete,
+    },
   };
 
   return (
@@ -29,7 +33,7 @@ const TodoItem = ({ contents }: TodoItemProbs) => {
       {/* <RoundCheckBox handleCheck={handleCheck} isChecked={isChecked} /> 와 같은 의미*/}
       <RoundCheckBox {...obj.roundCheckBox} />
       <Label {...obj.label} />
-      {isChecked && <TrashIcon />}
+      {isChecked && <TrashIcon {...obj.trashIcon} />}
     </div>
   );
 };
