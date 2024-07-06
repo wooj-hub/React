@@ -1,5 +1,11 @@
+import Body from "./components/organism/Body";
+
 function App() {
-  return <div className="text-blue-600">123456</div>;
+  return (
+    <div>
+      <Body />
+    </div>
+  );
 }
 
 export default App;
