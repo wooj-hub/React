@@ -1,11 +1,14 @@
 import { TEXTSTYLE } from "../../styles/textStyle";
 
-export type LabelProps = {
+export type CheckedLabelProps = {
   isChecked?: boolean;
   contents?: string;
 };
 
-const Label = ({ isChecked = false, contents = "내용 없음" }: LabelProps) => {
+const CheckedLabel = ({
+  isChecked = false,
+  contents = ERROR.NOCONTENT,
+}: CheckedLabelProps) => {
   return (
     //TEXTSTYLE 에서 폰트스타일 가져오기
     <span className={isChecked ? TEXTSTYLE.DONE : TEXTSTYLE.TODO}>
@@ -14,4 +17,4 @@ const Label = ({ isChecked = false, contents = "내용 없음" }: LabelProps) =>
   );
 };
 
-export default Label;
+export default CheckedLabel;
