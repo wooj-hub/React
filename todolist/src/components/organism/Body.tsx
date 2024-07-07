@@ -1,8 +1,14 @@
 import { useEffect, useState } from "react";
 import AddButton from "../atom/AddButton";
 import TodoItem, { TodoItemProps } from "../molecule/TodoItem";
-import { userInput } from "../../utils/util";
+import { localGet, localSet, userInput } from "../../utils/util";
 import { INFO } from "../../constants/infoMessage";
+import { APIKEY } from "../../constants/apikey";
+
+//코드 간단화
+//1. 키값을 함수로 빼기 => apikey
+//2. localStorage.setItem(APIKEY.LOCAL, JSON.stringify(value)); 함수로 빼기 => util localSet
+//3. localStorage.getItem(APIKEY.LOCAL) || "[]"; 함스로 빼기 => util localGet
 
 const Body = () => {
   const [id, setId] = useState<number>(0);
@@ -20,8 +26,10 @@ const Body = () => {
     setTodoitems((prev) => {
       //storage에 값들 저장하기. storage에 값이 저장되어야 새로고침했을 때 값들이 유지됨.
       const updatedData = [...prev, newData];
+
       // 배열은 storage에 못들어가서 문자화 시켜줘야 함 JSON.stringify
-      localStorage.setItem("TodoList", JSON.stringify(updatedData));
+      // localStorage.setItem(APIKEY.LOCAL, JSON.stringify(updatedData)); 와 같은의미
+      localSet(updatedData);
       return [...prev, newData];
     });
 
@@ -31,9 +39,13 @@ const Body = () => {
   //새로고침했을때 ???
   useEffect(() => {
     // storage에 저장된 값(문자) 밖으로 출력하기. null 값이면 "[]". 그냥 []이렇게 하면 문자가 아니라서 JSON.parse에서 오류남
-    const todolist = localStorage.getItem("TodoList") || "[]";
+    // const todolist = localStorage.getItem(APIKEY.LOCAL) || "[]"; 와 같은의미
+    const todolist = localGet();
     // 문자에서 배열로 바꾸기 =>JSON.parse(todolist)
     const ArrayTodolist = JSON.parse(todolist);
+
+    //위에 코드를 더 간단화
+    // const ArrayTodolist = JSON.parse(localGet());
 
     //?????? 새로 고침했을 때 id를 다시 순서대로 정렬해줌
     const mappedArray = ArrayTodolist.map((v: any, i: number) => ({
@@ -41,7 +53,10 @@ const Body = () => {
       contents: v.contents,
     }));
     ///??????새로 고침했을 때 id를 다시 순서대로 정렬해줌
-    localStorage.setItem("TodoList", JSON.stringify(mappedArray));
+    // localStorage.setItem(APIKEY.LOCAL, JSON.stringify(mappedArray));
+    localSet(mappedArray);
+    //새로 고침했을 때 id를 다시 순서대로 정렬해줌. 근데 이것도 object 에러 떠서 storage에서 object 값 삭제후 다시 실행하기
+    //object에 대한 오류도 원래는 처리해줘야함
     setTodoitems(mappedArray);
     // . 했을때 length 안나와??? 타입이 명시적이지 않아서 그렇대. 사용은 가능
     setId(ArrayTodolist.length);
@@ -60,7 +75,9 @@ const Body = () => {
       // const mappedData = updatedData.map((v, i) => {
       //   return { id: i, contents: v.contents };
       // });
-      localStorage.setItem("TodoList", JSON.stringify(updatedData));
+
+      // localStorage.setItem(APIKEY.LOCAL, JSON.stringify(updatedData));와 같은의미
+      localSet(updatedData);
       return updatedData;
     });
   };
