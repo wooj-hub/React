@@ -8,7 +8,7 @@ export type TodoItemProps = {
   contents: string;
   onDelete?: () => void;
 };
-const TodoItem = ({ contents, onDelete }: TodoItemProps) => {
+const TodoItem = ({ id, contents, onDelete }: TodoItemProps) => {
   const [isChecked, SetIsChecked] = useState<boolean>(false);
   //checkbox 를 check표시할수있도록 해주는 함수
   const handleCheck = () => {
